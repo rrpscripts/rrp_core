@@ -8,7 +8,7 @@ local InvisibleEntities = {
     -- modelHash,
 }
 
-local function setEntityVisible(id, bool, source, coords, modelHash, metadata)
+local function setWorldEntityVisible(id, bool, source, coords, modelHash, metadata)
     if bool then
         if InvisibleEntities[id] then return end
         InvisibleEntities[id] = {
@@ -18,16 +18,16 @@ local function setEntityVisible(id, bool, source, coords, modelHash, metadata)
             modelHash = modelHash,
             metadata = metadata
         }
-        TriggerClientEvent('rrp_core:sync:setEntityVisible', -1, id, bool, source, coords, modelHash, metadata)
+        TriggerClientEvent('rrp_core:sync:setWorldEntityVisible', -1, id, bool, source, coords, modelHash, metadata)
     else
         if not InvisibleEntities[id] then return end
         InvisibleEntities[id] = nil
-        TriggerClientEvent('rrp_core:sync:setEntityVisible', -1, id, bool)
+        TriggerClientEvent('rrp_core:sync:setWorldEntityVisible', -1, id, bool)
     end
 end
 
 Sync = {
-    setEntityVisible = setEntityVisible
+    setWorldEntityVisible = setWorldEntityVisible
 }
 
 exports('Sync', function(event, ...)

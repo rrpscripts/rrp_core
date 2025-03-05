@@ -29,7 +29,7 @@ local startThread = function()
     end)
 end
 
-local function setEntityVisible(id, bool, source, coords, modelHash, metadata, radius)
+local function setWorldEntityVisible(id, bool, source, coords, modelHash, metadata, radius)
     if bool then
         if InvisibleEntities[id] then return end
         local entity = GetClosestObjectOfType(coords, radius or 0.1, modelHash, false, false, false)
@@ -61,4 +61,4 @@ local function setEntityVisible(id, bool, source, coords, modelHash, metadata, r
     end
 end
 
-RegisterNetEvent('rrp_core:sync:setEntityVisible', setEntityVisible)
+RegisterNetEvent('rrp_core:sync:setWorldEntityVisible', setWorldEntityVisible)

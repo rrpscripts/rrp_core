@@ -59,4 +59,10 @@ Streaming = {
     RemoveAnimDict = rmAnimDict
 }
 
+exports('Streaming', function(event, ...)
+    if Streaming[event] then
+        return Streaming[event](...)
+    end
+end)
+
 return Streaming
